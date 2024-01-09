@@ -1,0 +1,44 @@
+body {
+    background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* White background */
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.spinner {
+    display: inline-block;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3em;
+    color: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); /* Rainbow colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: changeColor 5s linear infinite;
+}
+
+@keyframes changeColor {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}

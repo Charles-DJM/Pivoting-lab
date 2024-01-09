@@ -1,0 +1,46 @@
+services:
+  web:
+    hostname: server-1
+    container_name: server-1
+    build: ./server1/
+    ports:
+      - "22:22"
+      - "80:80"
+    networks:
+        net1:
+            ipv4_address: 172.16.1.10
+        net2:
+            ipv4_address: 172.16.2.10
+  server-2:
+    hostname: server-2
+    container_name: server-2
+    build: ./server2/
+    networks:
+        net2:
+            ipv4_address: 172.16.2.20
+        net3:
+            ipv4_address: 172.16.3.20
+
+  server-3:
+    hostname: server-3
+    container_name: server-3
+    image: "php:7.2-apache"    
+    networks:
+        net3:
+            ipv4_address: 172.16.3.30
+
+networks:
+    net1:
+        ipam:
+            config:
+                - subnet: "172.16.1.0/24"
+                  gateway: "172.16.1.5"
+    net2:
+        ipam:
+            config:
+                - subnet: "172.16.2.0/24"
+                  gateway: "172.16.2.5"
+    net3:
+        ipam:
+            config:
+                - subnet: "172.16.3.0/24"
