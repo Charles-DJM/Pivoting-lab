@@ -24,7 +24,7 @@ services:
   server-3:
     hostname: server-3
     container_name: server-3
-    image: "php:7.2-apache"    
+    image: ./server3/
     networks:
         net3:
             ipv4_address: 172.16.3.30
